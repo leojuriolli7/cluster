@@ -2,7 +2,7 @@
 
 Cluster is a forum website made with React JS and consuming my GraphQL API called <a href="https://github.com/leojuriolli7/cluster-api">Cluster API</a>.
 
-Access Cluster via vercel: https://cluster-leojuriolli7.vercel.app/
+Access Cluster: https://cluster-forum.com/
 
 Cluster is also a <a href="https://web.dev/progressive-web-apps/">**PWA**</a> (Progressive Web App) - It can be downloaded as an app like a regular application on the phone or desktop.
 
