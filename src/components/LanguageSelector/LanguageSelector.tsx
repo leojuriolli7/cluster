@@ -19,6 +19,16 @@ const LanguageSelector: FC = () => {
     [toggleLanguage, storeLanguage]
   )
 
+  const languageName = {
+    en: t('english'),
+    pt: t('portuguese')
+  }
+
+  const countryName = {
+    en: t('unitedStates'),
+    pt: t('brazil')
+  }
+
   return (
     <S.Container>
       {LANGUAGES.map((language) => (
@@ -27,13 +37,17 @@ const LanguageSelector: FC = () => {
           key={language.id}
           value={language.name}
           isActive={storeLanguage === language.name}
-          aria-label={t('changeLanguage', { language: language.name })}
+          aria-label={t('changeLanguage', {
+            language: languageName[language.name]
+          })}
         >
           <Image
             width="100%"
             height="100%"
             src={language.image}
-            alt={t('countryFlag', { country: language.country })}
+            alt={t('countryFlag', {
+              country: countryName[language.name]
+            })}
           />
         </S.Button>
       ))}

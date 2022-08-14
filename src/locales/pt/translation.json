@@ -46,5 +46,9 @@
   "countryFlag": "Bandeira do {{country}}",
   "changeLanguage": "Mude seu idioma para {{language}}",
   "switchTheme": "Mude o tema",
-  "report": "Reportar"
+  "report": "Reportar",
+  "english": "Inglês",
+  "portuguese": "Português",
+  "unitedStates": "Estados Unidos",
+  "brazil": "Brasil"
 }
