@@ -25,15 +25,13 @@ import './index.css'
 
 const Application: FC = () => {
   const { theme } = themeStore((state) => state)
-  const { language: storeLanguage, toggleLanguage } = languageStore()
+  const { language: storeLanguage } = languageStore()
   const { token } = authStore()
 
   useEffect(() => {
     if (storeLanguage !== ('en' || 'pt')) {
-      toggleLanguage('en')
       i18next.changeLanguage('en')
     }
-
     i18next.changeLanguage(storeLanguage)
   }, [storeLanguage])
 
