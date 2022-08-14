@@ -1,9 +1,10 @@
 import styled from 'styled-components'
 
-export const Container = styled.div`
+export const Container = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
+  padding-bottom: 40px;
 `
 
 export const Content = styled.div`
