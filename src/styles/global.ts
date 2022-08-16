@@ -29,7 +29,8 @@ export const GlobalStyle = createGlobalStyle`
 
   }
 
-  background: ${({ theme }) => theme.colors.system.primary};
+  background: ${({ theme }) =>
+    theme.name === 'dark' ? 'rgb(35, 35, 35)' : theme.colors.system.primary};
 
   }
 
