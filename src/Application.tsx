@@ -29,9 +29,6 @@ const Application: FC = () => {
   const { token } = authStore()
 
   useEffect(() => {
-    if (storeLanguage !== ('en' || 'pt')) {
-      i18next.changeLanguage('en')
-    }
     i18next.changeLanguage(storeLanguage)
   }, [storeLanguage])
 
