@@ -27,7 +27,7 @@ export const LogoContainer = styled.div`
   }
 
   .header-logo-text {
-    @media (max-width: 415px) {
+    @media (max-width: 425px) {
       display: none;
     }
   }

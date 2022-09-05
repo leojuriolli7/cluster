@@ -25,7 +25,7 @@ const Footer: FC = () => {
             components={[
               <S.Link
                 color={textColor}
-                href="https://github.com/leojuriolli7/clusters-api"
+                href="https://github.com/leojuriolli7/cluster-api"
               />,
               <S.Link
                 color={textColor}

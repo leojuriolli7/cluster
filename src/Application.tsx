@@ -36,7 +36,7 @@ const Application: FC = () => {
     if (localStorage.getItem('cluster-token') !== token) {
       localStorage.setItem('cluster-token', token)
     }
-  }, [])
+  }, [token, localStorage])
 
   const isDarkTheme = theme
 

@@ -2,6 +2,10 @@ import styled from 'styled-components'
 
 export const Container = styled.main`
   padding: 40px;
+
+  @media (max-width: 425px) {
+    padding: 20px 0;
+  }
 `
 
 export const Content = styled.div`
@@ -16,7 +20,7 @@ export const Content = styled.div`
   justify-content: center;
   padding: 20px 0;
 
-  @media (max-width: 415px) {
+  @media (max-width: 425px) {
     background: transparent;
     box-shadow: none;
   }
@@ -33,6 +37,11 @@ export const TitleContainer = styled.div`
     h1 {
       font-size: 2.75rem;
     }
+  }
+
+  @media (max-width: 425px) {
+    min-width: auto;
+    width: 90%;
   }
 `
 
