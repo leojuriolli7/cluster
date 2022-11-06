@@ -75,8 +75,6 @@ const EditPost: FC<Props> = ({ post, setIsEditing }) => {
     }
   }, [updatePostError])
 
-  const fieldBackgroundColor = useIsTheme('system-jetblack', 'system-grey')
-
   const buttonBackgroundColor = useIsTheme(
     'system-contrast',
     'social-instagram'
@@ -100,7 +98,6 @@ const EditPost: FC<Props> = ({ post, setIsEditing }) => {
         className="edit-post-body"
         error={errors?.body?.message}
         control={control}
-        backgroundColor={fieldBackgroundColor}
         style={{ resize: 'vertical' }}
       />
       <S.ButtonsContainer>

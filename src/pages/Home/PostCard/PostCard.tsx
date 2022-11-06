@@ -16,8 +16,8 @@ type Props = {
 
 const PostCard: FC<Props> = ({ post, loading, onClick }) => {
   const { t } = useTranslation()
-
   const { user } = authStore()
+  const hasPostBeenUpdated = post?.updatedAt !== post?.createdAt
 
   return (
     <S.PostCard key={post?.id} onClick={onClick}>
@@ -60,7 +60,7 @@ const PostCard: FC<Props> = ({ post, loading, onClick }) => {
             {useFormattedDistanceToNow(Number(post?.createdAt))}
           </Text>
         </S.UserAndDateContainer>
-        <ShouldRender if={post?.updatedAt !== post?.createdAt}>
+        <ShouldRender if={hasPostBeenUpdated}>
           <Text loading={loading} type="big-label">
             {t('updatedAt', {
               time: useFormattedDistanceToNow(Number(post?.updatedAt))

@@ -14,9 +14,7 @@ const isBrowserLanguageSupported = ALLOWED_LANGUAGES.includes(browserLanguage)
 const languageStore = create(
   persist<State>(
     (set) => ({
-      language: isBrowserLanguageSupported
-        ? browserLanguage
-        : 'en',
+      language: isBrowserLanguageSupported ? browserLanguage : 'en',
       toggleLanguage: (value) => set(() => ({ language: value }))
     }),
     {

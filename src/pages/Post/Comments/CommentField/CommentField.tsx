@@ -101,7 +101,7 @@ const CommentField: FC<Props> = ({
     }
   }, [])
 
-  const fieldBackgroundColor = useIsTheme('system-jetblack', 'system-grey')
+  const fieldBackgroundColor = useIsTheme('system-jetblack', 'system-secondary')
   const buttonBackgroundColor = useIsTheme(
     'system-contrast',
     'social-instagram'
@@ -109,7 +109,7 @@ const CommentField: FC<Props> = ({
   const buttonTextColor = useIsTheme('system-jetblack', 'status-contrast')
 
   return (
-    <S.FieldBackground>
+    <S.FieldBackground isEdit={isEdit}>
       <Field
         type="textarea"
         control={control}

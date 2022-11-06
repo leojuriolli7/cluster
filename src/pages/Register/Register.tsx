@@ -1,5 +1,5 @@
 import { FC, useCallback, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { NavigateOptions, useNavigate } from 'react-router-dom'
 import { useMutation } from '@apollo/client'
 import { PageWrapper } from '@pages/PageWrapper'
 import { Button } from '@components/Button'
@@ -7,6 +7,7 @@ import { REGISTER } from '@constants/mutations'
 import { yupResolver } from '@hookform/resolvers/yup'
 import authStore from '@state/auth/auth'
 import useIsAuthenticated from '@utils/useIsAuthenticated'
+import useGoBackOrHome from '@utils/useGoBackOrHome'
 import { Field } from '@components/Field'
 import ShouldRender from '@components/ShouldRender'
 import { useTranslation } from 'react-i18next'
@@ -21,14 +22,16 @@ const Register: FC = () => {
   const { t } = useTranslation()
 
   const [register, { loading, error }] = useMutation(REGISTER)
-
   const { setToken, setUser } = authStore()
-
   const [isAuthenticated] = useIsAuthenticated()
 
   const navigate = useNavigate()
+  const goBackOrHome = useGoBackOrHome()
 
-  const goTo = useCallback((to: string) => () => navigate(to), [])
+  const goTo = useCallback(
+    (to: string, options?: NavigateOptions) => () => navigate(to, options),
+    []
+  )
 
   const {
     control,
@@ -49,6 +52,8 @@ const Register: FC = () => {
       setUser(response.data.register.user)
       // TODO: Remove localStorage and replace with zustrand
       localStorage.setItem('cluster-token', response.data.register.token)
+
+      goBackOrHome()
     })
   }, [])
 
@@ -133,7 +138,7 @@ const Register: FC = () => {
                 type="small-title"
                 style={{ marginTop: '15px' }}
                 underline
-                onClick={goTo('/login')}
+                onClick={goTo('/login', { replace: true })}
               >
                 {t('alreadyHaveAccount')}
               </Text>

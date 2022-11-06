@@ -40,8 +40,8 @@ export const light: DefaultTheme = {
   colors: {
     system: {
       primary: '#3331',
-      secondary: '#CDCDCD',
-      tertiary: '#e3e3e3',
+      secondary: '#F9F9F9',
+      tertiary: '#fcfcfc',
       contrast: '#1a1a1b',
       greydark: '#424242',
       greylight: '#8E8E8E',

@@ -4,8 +4,8 @@ export const Input = styled.input<{ backgroundColor: string }>`
   background-color: ${({ backgroundColor }) => backgroundColor};
   border: none;
   color: ${({ theme }) => theme.colors.system.contrast};
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
-    rgba(17, 17, 26, 0.1) 0px 0px 8px;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px,
+    rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
   height: 44px;
   margin-top: 8px;
   width: 100%;
@@ -14,6 +14,13 @@ export const Input = styled.input<{ backgroundColor: string }>`
   font-size: 15px;
   padding: 0 20px;
   font-family: 'Roboto';
+
+  ${({ theme }) =>
+    theme.name === 'light' &&
+    `
+  
+    box-shadow: rgba(0, 0, 0, 0.02) 0px 1px 3px 0px, rgba(27, 31, 35, 0.15) 0px 0px 0px 1px;
+  `};
 
   :focus {
     border: none;

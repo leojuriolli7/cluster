@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@components/Button'
 import { Text } from '@components/Text'
-import useIsTheme from '@utils/useIsTheme'
 import useIsAuthenticated from '@utils/useIsAuthenticated'
 import Logo from '@assets/images/logo.svg'
 import authStore from '@state/auth/auth'
@@ -33,9 +32,6 @@ const Header: FC = () => {
     localStorage.setItem('cluster-token', undefined)
   }, [])
 
-  const buttonColor = useIsTheme('system-contrast', 'social-instagram')
-  const buttonTextColor = useIsTheme('system-secondary', 'status-contrast')
-
   return (
     <S.Container>
       <S.Content>
@@ -59,8 +55,8 @@ const Header: FC = () => {
               width={100}
               label={t('login')}
               onClick={goTo('/login')}
-              backgroundColor={buttonColor}
-              textColor={buttonTextColor}
+              backgroundColor="social-instagram"
+              textColor="status-contrast"
             />
           </ShouldRender>
           <ThemeSwitch />

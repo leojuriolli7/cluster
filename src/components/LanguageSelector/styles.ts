@@ -16,6 +16,8 @@ export const Container = styled.div`
   width: 90px;
   height: 50px;
   padding: 10px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px,
+    rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
 
   .active {
     border: 2px solid #000 !important;

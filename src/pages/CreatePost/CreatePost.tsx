@@ -2,6 +2,7 @@ import { FC, useCallback, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { HOMEPAGE_POSTS_QUERY } from '@constants/queries'
 import { useMutation } from '@apollo/client'
+import useIsTheme from '@utils/useIsTheme'
 import { PageWrapper } from '@pages/PageWrapper'
 import { Button } from '@components/Button'
 import { CREATE_POST } from '@constants/mutations'
@@ -21,6 +22,8 @@ const CreatePost: FC = () => {
   const [createPost, { loading, error }] = useMutation(CREATE_POST)
 
   const navigate = useNavigate()
+
+  const fieldBackgroundColor = useIsTheme('system-secondary', 'system-tertiary')
 
   const {
     control,
@@ -58,6 +61,7 @@ const CreatePost: FC = () => {
               type="text"
               label={t('postTitle')}
               placeholder={t('postTitlePlaceholder')}
+              backgroundColor={fieldBackgroundColor}
               name="title"
               control={control}
               error={errors?.title?.message}
@@ -66,7 +70,7 @@ const CreatePost: FC = () => {
               type="textarea"
               label={t('postContent')}
               placeholder={t('postContentPlaceholder')}
-              backgroundColor="system-secondary"
+              backgroundColor={fieldBackgroundColor}
               name="body"
               control={control}
               error={errors?.body?.message}

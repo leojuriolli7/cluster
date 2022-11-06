@@ -11,7 +11,7 @@ export type TextAreaProps = React.InputHTMLAttributes<HTMLTextAreaElement> & {
 }
 
 const Textarea: React.FC<TextAreaProps> = (props: TextAreaProps) => {
-  const { field, backgroundColor = 'system-jetblack', ...rest } = props
+  const { field, backgroundColor = 'system-secondary', ...rest } = props
 
   const resolveColor = useResolveColor()
 
