@@ -8,6 +8,8 @@ Cluster is also a <a href="https://web.dev/progressive-web-apps/">**PWA**</a> (P
 
 The website has **authorization** (register and login) and the ability to **create**, **edit** or **delete** **posts** and **comments**. It also has light and dark mode alongside 🇧🇷Portuguese and 🇺🇸English translations.
 
+The website identifies the browser/OS theme on the first visit and saves it. It also watches the browser/OS theme changes and follows it. Cluster also identifies the browser language and sets it automatically on the first visit.
+
 ## Tecnologies used in this project:
 
 - <a href="https://reactjs.org/">ReactJS</a>, <a href="https://www.typescriptlang.org/">Typescript</a>
