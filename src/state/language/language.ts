@@ -6,14 +6,16 @@ type State = {
   toggleLanguage: (value: 'en' | 'pt') => void
 }
 
-const isBrowserLanguageSupported =
-  navigator.language.substring(0, 2) === 'pt' || 'en'
+const ALLOWED_LANGUAGES = ['en', 'pt']
+const browserLanguage = navigator.language.substring(0, 2)
+
+const isBrowserLanguageSupported = ALLOWED_LANGUAGES.includes(browserLanguage)
 
 const languageStore = create(
   persist<State>(
     (set) => ({
       language: isBrowserLanguageSupported
-        ? navigator.language.substring(0, 2)
+        ? browserLanguage
         : 'en',
       toggleLanguage: (value) => set(() => ({ language: value }))
     }),
