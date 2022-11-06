@@ -7,6 +7,7 @@ import themeStore from '@state/theme/theme'
 import { ApolloProvider } from '@apollo/client'
 import { GlobalStyle } from '@styles/global'
 import { light, dark } from '@styles/theme'
+import { useThemeDetector } from '@utils/useThemeDetector'
 import authStore from '@state/auth/auth'
 import { LanguageSelector } from '@components/LanguageSelector'
 import { ProtectedRoute } from '@components/ProtectedRoute'
@@ -24,13 +25,20 @@ import './i18n'
 import './index.css'
 
 const Application: FC = () => {
-  const { theme } = themeStore((state) => state)
+  const { theme, toggleTheme } = themeStore((state) => state)
   const { language: storeLanguage } = languageStore()
   const { token } = authStore()
+
+  const isBrowserDarkTheme = useThemeDetector()
+  const browserTheme = isBrowserDarkTheme ? 'dark' : 'light'
 
   useEffect(() => {
     i18next.changeLanguage(storeLanguage)
   }, [storeLanguage])
+
+  useEffect(() => {
+    toggleTheme(browserTheme)
+  }, [isBrowserDarkTheme])
 
   useEffect(() => {
     if (localStorage.getItem('cluster-token') !== token) {
@@ -38,7 +46,7 @@ const Application: FC = () => {
     }
   }, [token, localStorage])
 
-  const isDarkTheme = theme
+  const isDarkTheme = theme === 'dark'
 
   return (
     <ApolloProvider client={client}>

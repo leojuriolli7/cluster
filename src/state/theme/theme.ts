@@ -2,8 +2,8 @@ import create from 'zustand'
 import { persist } from 'zustand/middleware'
 
 type State = {
-  theme: boolean
-  toggleTheme: (value: boolean) => void
+  theme: 'light' | 'dark'
+  toggleTheme: (value: 'light' | 'dark') => void
 }
 
 const isDarkMode = matchMedia('(prefers-color-scheme: dark)').matches
@@ -11,7 +11,7 @@ const isDarkMode = matchMedia('(prefers-color-scheme: dark)').matches
 const themeStore = create(
   persist<State>(
     (set) => ({
-      theme: isDarkMode,
+      theme: isDarkMode ? 'dark' : 'light',
       toggleTheme: (value) => set(() => ({ theme: value }))
     }),
     {

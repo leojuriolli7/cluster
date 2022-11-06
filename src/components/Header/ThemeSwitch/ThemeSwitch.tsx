@@ -9,15 +9,17 @@ const ThemeSwitch: FC = () => {
   const { t } = useTranslation()
   const { toggleTheme, theme } = themeStore()
 
+  const isDarkTheme = theme === 'dark'
+
   const changeTheme = useCallback(
-    () => toggleTheme(!theme),
-    [theme, toggleTheme]
+    () => toggleTheme(isDarkTheme ? 'light' : 'dark'),
+    [theme, toggleTheme, isDarkTheme]
   )
 
   return (
     <Switch
       aria-label={t('switchTheme')}
-      checked={theme}
+      checked={isDarkTheme}
       onChange={changeTheme}
       uncheckedIcon={false}
       checkedIcon={false}
