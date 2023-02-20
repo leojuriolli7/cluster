@@ -50,5 +50,6 @@
   "english": "English",
   "portuguese": "Portuguese",
   "unitedStates": "United States",
-  "brazil": "Brazil"
+  "brazil": "Brazil",
+  "noConnection": "No internet connection"
 }

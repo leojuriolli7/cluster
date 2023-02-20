@@ -34,8 +34,8 @@ export const Button = styled.button<ButtonProps>`
   ${({ isActive }) =>
     isActive &&
     `
-  border: 2px solid #000 !important;
-  transform: scale(1.2) !important;`}
+  outline: 2px solid #000 !important;
+  `}
 
   &:hover {
     transform: scale(1.1);

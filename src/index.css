@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'cairo-bold';
-  src: url(../src/assets/fonts/Cairo-SemiBold.ttf) format('truetype');
+  src: url(/assets/fonts/Cairo-SemiBold.ttf) format('truetype');
   font-weight: 600;
   font-style: normal;
   font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'cairo-light';
-  src: url(../src/assets/fonts/Cairo-ExtraLight.ttf) format('truetype');
+  src: url(/assets/fonts/Cairo-ExtraLight.ttf) format('truetype');
   font-weight: 200;
   font-style: normal;
   font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: 'cairo-medium';
-  src: url(../src/assets/fonts/Cairo-Medium.ttf) format('truetype');
+  src: url(/assets/fonts/Cairo-Medium.ttf) format('truetype');
   font-weight: 500;
   font-style: normal;
   font-display: swap;
@@ -24,11 +24,24 @@
 
 @font-face {
   font-family: 'cairo-regular';
-  src: url(../src/assets/fonts/Cairo-Regular.ttf) format('truetype');
+  src: url(/assets/fonts/Cairo-Regular.ttf) format('truetype');
   font-weight: 400;
   font-style: normal;
   font-display: swap;
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;500;700;900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@400;700&family=Roboto:wght@400;500;700;900&display=swap');
+@font-face {
+  font-family: 'Roboto';
+  src: url(/assets/fonts/Roboto-Regular.ttf) format('truetype');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Roboto Condensed';
+  src: url(/assets/fonts/Roboto-Condensed.ttf) format('truetype');
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}

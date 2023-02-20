@@ -6,12 +6,10 @@ type State = {
   toggleTheme: (value: 'light' | 'dark') => void
 }
 
-const isDarkMode = matchMedia('(prefers-color-scheme: dark)').matches
-
 const themeStore = create(
   persist<State>(
     (set) => ({
-      theme: isDarkMode ? 'dark' : 'light',
+      theme: 'dark',
       toggleTheme: (value) => set(() => ({ theme: value }))
     }),
     {

@@ -1,5 +1,4 @@
 import { FC, useCallback } from 'react'
-import { useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
 import { Button } from '@components/Button'
 import { Text } from '@components/Text'
@@ -12,6 +11,7 @@ import { ThemeSwitch } from './ThemeSwitch'
 
 import { Avatar } from './Avatar'
 import * as S from './styles'
+import { useRouter } from 'next/router'
 
 const Header: FC = () => {
   const { t } = useTranslation()
@@ -20,9 +20,9 @@ const Header: FC = () => {
 
   const [isAuthenticated] = useIsAuthenticated()
 
-  const navigate = useNavigate()
+  const router = useRouter()
 
-  const goTo = useCallback((to: string) => () => navigate(to), [])
+  const goTo = useCallback((to: string) => () => router.push(to), [])
 
   const handleClickAvatar = useCallback(() => {
     setToken(undefined)

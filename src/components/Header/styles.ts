@@ -1,5 +1,5 @@
+import Image from 'next/image'
 import styled from 'styled-components'
-import { Image } from '@components/Image'
 
 export const Container = styled.header`
   background: ${({ theme }) => theme.colors.system.secondary};

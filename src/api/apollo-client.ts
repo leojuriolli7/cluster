@@ -3,7 +3,7 @@ import { setContext } from '@apollo/client/link/context'
 import { offsetLimitPagination } from '@apollo/client/utilities'
 
 const httpLink = new HttpLink({
-  uri: process.env.REACT_APP_API_URL
+  uri: process.env.NEXT_PUBLIC_API_URL
 })
 
 const authLink = setContext((_, { headers }) => {

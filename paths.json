@@ -4,13 +4,15 @@
     "paths": {
       "@components/*": ["src/components/*"],
       "@pages/*": ["src/pages/*"],
-      "@assets/*": ["src/assets/*"],
+      "@assets/*": ["public/assets/*"],
       "@styles/*": ["src/styles/*"],
       "@utils/*": ["src/utils/*"],
       "@state/*": ["src/state/*"],
       "@constants/*": ["src/constants/*"],
       "@hooks/*": ["src/hooks/*"],
       "@config/*": ["src/config/*"],
+      "@screens/*": ["src/screens/*"],
+      "@providers/*": ["src/providers/*"],
       "@package": ["package.json"]
     }
   }
