@@ -5,6 +5,7 @@ import { toast } from 'react-toastify'
 import MetaTags from '@components/MetaTags'
 import ShouldRender from '@components/ShouldRender'
 import { useRouter } from 'next/router'
+import { Post as PostType } from '@constants/types'
 import authStore from '@state/auth/auth'
 import { GET_POST_BY_ID } from '@constants/queries'
 import { PageWrapper } from '@components/PageWrapper'
@@ -14,18 +15,14 @@ import { Comments } from './Comments'
 import { EditPost } from './EditPost'
 import * as S from './styles'
 
-const Post: FC = () => {
+type Props = {
+  post: PostType
+}
+
+const Post: FC<Props> = ({ post }) => {
   const [isEditing, setIsEditing] = useState(false)
 
   const [isAuthenticated] = useIsAuthenticated()
-  const router = useRouter()
-  const { id } = router.query
-
-  const { data, loading, error } = useQuery(GET_POST_BY_ID, {
-    variables: { id }
-  })
-
-  const post = data?.post || []
 
   const { user } = authStore()
 
@@ -36,10 +33,6 @@ const Post: FC = () => {
   useEffect(() => {
     window.scrollTo(0, 0)
   }, [])
-
-  useEffect(() => {
-    toast.error(error?.message)
-  }, [error])
 
   useEffect(() => {
     if (!isAuthenticated) {
@@ -60,7 +53,6 @@ const Post: FC = () => {
               <PostContent
                 onClickEdit={handleClickEdit}
                 post={post}
-                loading={loading}
                 isAuthor={post?.author?.id === user?.id}
               />
             </ShouldRender>

@@ -19,7 +19,7 @@ import { useRouter } from 'next/router'
 
 type Props = {
   post?: Post
-  loading: boolean
+  loading?: boolean
   isAuthor: boolean
   onClickEdit: () => void
 }

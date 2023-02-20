@@ -3,6 +3,10 @@ import styled from 'styled-components'
 export const Container = styled.main`
   padding: 40px;
 
+  a {
+    text-decoration: none;
+  }
+
   @media (max-width: 425px) {
     padding: 20px 0;
   }
@@ -50,4 +54,11 @@ export const ButtonContent = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+`
+
+export const PostsList = styled.ul`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 `

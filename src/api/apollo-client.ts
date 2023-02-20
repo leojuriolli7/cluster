@@ -6,9 +6,11 @@ const httpLink = new HttpLink({
   uri: process.env.NEXT_PUBLIC_API_URL
 })
 
+const isSSR = typeof window === 'undefined'
+
 const authLink = setContext((_, { headers }) => {
   // TODO: Remove localStorage and replace with zustrand
-  const token = localStorage.getItem('cluster-token')
+  const token = isSSR ? '' : localStorage.getItem('cluster-token')
   return {
     headers: {
       ...headers,

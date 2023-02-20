@@ -11,12 +11,12 @@ import { PageWrapper } from '@components/PageWrapper'
 import ShouldRender from '@components/ShouldRender'
 import { Button } from '@components/Button'
 import { Text } from '@components/Text'
+import { useRouter } from 'next/router'
+import Link from 'next/link'
 import useIsTheme from '@utils/useIsTheme'
 import { PostCard } from './PostCard'
 
 import * as S from './styles'
-import { useRouter } from 'next/router'
-import Link from 'next/link'
 
 const Home: FC = () => {
   const { t } = useTranslation()
@@ -37,8 +37,6 @@ const Home: FC = () => {
   const posts = data?.posts
 
   const router = useRouter()
-
-  const goTo = useCallback((to: string) => () => router.push(to), [])
 
   const handleCreatePostButton = useCallback(() => {
     if (isAuthenticated) {
@@ -87,13 +85,13 @@ const Home: FC = () => {
             </Button>
           </S.TitleContainer>
           <ShouldRender if={!loading || posts?.length}>
-            {posts?.map((post: Post) => (
-              <PostCard
-                key={post?.id}
-                post={post}
-                onClick={goTo(`posts/${post?.id}`)}
-              />
-            ))}
+            <S.PostsList>
+              {posts?.map((post: Post) => (
+                <Link href={`posts/${post?.id}`} prefetch>
+                  <PostCard key={post?.id} post={post} />
+                </Link>
+              ))}
+            </S.PostsList>
           </ShouldRender>
 
           <ShouldRender if={loading && !posts?.length}>
