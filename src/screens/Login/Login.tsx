@@ -2,7 +2,6 @@ import { FC, useCallback, useEffect } from 'react'
 import { useMutation } from '@apollo/client'
 import { PageWrapper } from '@components/PageWrapper'
 import { Button } from '@components/Button'
-import { useRouter } from 'next/router'
 import { LOGIN } from '@constants/mutations'
 import { yupResolver } from '@hookform/resolvers/yup'
 import authStore from '@state/auth/auth'
@@ -17,6 +16,7 @@ import { toast } from 'react-toastify'
 
 import { formSchema } from './_validations'
 import * as S from './styles'
+import Link from 'next/link'
 
 const Login: FC = () => {
   const { t } = useTranslation()
@@ -25,14 +25,7 @@ const Login: FC = () => {
   const { setToken, setUser } = authStore()
   const [isAuthenticated] = useIsAuthenticated()
 
-  const router = useRouter()
   const goBackOrHome = useGoBackOrHome()
-
-  const goTo = useCallback(
-    (to: string, replace?: boolean) => () =>
-      replace ? router.replace(to) : router.push(to),
-    []
-  )
 
   const {
     control,
@@ -63,15 +56,19 @@ const Login: FC = () => {
         <S.Content>
           <ShouldRender if={isAuthenticated}>
             <Text type="big-title">{t('alreadyLogged')}</Text>
-            <Text
-              tag="a"
-              type="small-title"
-              style={{ marginTop: '35px' }}
-              underline
-              onClick={goTo('/')}
-            >
-              {t('goBackHome')}
-            </Text>
+            <Link href="/">
+              <Text type="small-title" style={{ marginTop: '35px' }} underline>
+                {t('goBackHome')}
+              </Text>
+              <Text
+                tag="a"
+                type="small-title"
+                style={{ marginTop: '35px' }}
+                underline
+              >
+                {t('goBackHome')}
+              </Text>
+            </Link>
           </ShouldRender>
           <ShouldRender if={!isAuthenticated}>
             <Text tag="h1" type="big-title">
@@ -104,15 +101,15 @@ const Login: FC = () => {
                 onClick={handleSubmit(handleClick)}
                 loading={loading}
               />
-              <Text
-                tag="a"
-                type="small-title"
-                style={{ marginTop: '35px' }}
-                underline
-                onClick={goTo('/register', true)}
-              >
-                {t('dontHaveAccount')}
-              </Text>
+              <Link href="/register" replace>
+                <Text
+                  type="small-title"
+                  style={{ marginTop: '35px' }}
+                  underline
+                >
+                  {t('dontHaveAccount')}
+                </Text>
+              </Link>
             </S.Form>
           </ShouldRender>
         </S.Content>

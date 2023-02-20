@@ -87,7 +87,7 @@ const Home: FC = () => {
           <ShouldRender if={!loading || posts?.length}>
             <S.PostsList>
               {posts?.map((post: Post) => (
-                <Link href={`posts/${post?.id}`} prefetch>
+                <Link href={`posts/${post?.id}`}>
                   <PostCard key={post?.id} post={post} />
                 </Link>
               ))}
